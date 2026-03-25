@@ -29,6 +29,8 @@ const fetchProfile = async (req, res) => {
       data: profile,
     });
   } catch (error) {
+    console.log(error);
+    
     return res.status(500).json({
       success: false,
       code: 500,

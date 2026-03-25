@@ -14,7 +14,7 @@ const signUpUser = async (req, res) => {
       return res.status(400).json({
         success: false,
         code: 400,
-        message: "⚠️ Please fill all required fields",
+        message: "Please fill all required fields",
       });
     }
 
@@ -23,7 +23,7 @@ const signUpUser = async (req, res) => {
       return res.status(409).json({
         success: false,
         code: 409,
-        message: "🧑‍💼 Account already exists. Please log in.",
+        message: "Account already exists. Please log in.",
       });
     }
 
@@ -51,7 +51,6 @@ const signUpUser = async (req, res) => {
     await profile.save();
 
 
-
     const token = jwt.sign(
       { id: newUser._id },
       process.env.JWT_SECRET,
@@ -61,7 +60,7 @@ const signUpUser = async (req, res) => {
     return res.status(201).json({
       success: true,
       code: 201,
-      message: "✅ Account created successfully",
+      message: "Account created successfully",
       data: {
         token,
         user: {
@@ -76,7 +75,7 @@ const signUpUser = async (req, res) => {
     return res.status(500).json({
       success: false,
       code: 500,
-      message: "🚨 Something went wrong. Please try again later.",
+      message: "Something went wrong. Please try again later.",
     });
   }
 };
@@ -94,7 +93,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({
         success: false,
         code: 400,
-        message: "⚠️ Please enter email and password",
+        message: "Please enter email and password",
       });
     }
 
@@ -103,7 +102,7 @@ const loginUser = async (req, res) => {
       return res.status(404).json({
         success: false,
         code: 404,
-        message: "🔍 Account not found",
+        message: "Account not found",
       });
     }
 
@@ -112,7 +111,7 @@ const loginUser = async (req, res) => {
       return res.status(401).json({
         success: false,
         code: 401,
-        message: "🔐 Incorrect password",
+        message: "Incorrect password",
       });
     }
 
@@ -125,7 +124,7 @@ const loginUser = async (req, res) => {
     return res.status(200).json({
       success: true,
       code: 200,
-      message: "✅ Login successful",
+      message: "Login successful",
       data: {
         token,
         user: {
@@ -141,7 +140,7 @@ const loginUser = async (req, res) => {
     return res.status(500).json({
       success: false,
       code: 500,
-      message: "🚨 Something went wrong. Please try again later.",
+      message: "Something went wrong. Please try again later.",
     });
   }
 };

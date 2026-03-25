@@ -3,7 +3,7 @@ import Trip from "../../models/trip.models.js";
 const createTrip = async (req, res) => {
   try {
 
-    const userId = req.user.id;
+    const userId = req.user._id;
 
     const {
       title,
@@ -102,7 +102,7 @@ const getMyTrips = async (req, res) => {
 
   try {
 
-    const userId = req.user.id;
+    const userId = req.user._id;
 
     const trips = await Trip.find({
       "members.user": userId
@@ -129,4 +129,9 @@ const getMyTrips = async (req, res) => {
 
 };
 
-export { createTrip, getMyTrips };
+
+
+
+
+
+export { createTrip, getMyTrips};

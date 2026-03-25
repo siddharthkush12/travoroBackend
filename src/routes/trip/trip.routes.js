@@ -9,4 +9,6 @@ router.post("/create", verifyJWT, createTrip);
 router.get("/my-trips", verifyJWT, getMyTrips);
 
 
+
+
 export default router;
